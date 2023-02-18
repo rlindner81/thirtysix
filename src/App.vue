@@ -52,11 +52,21 @@ function shuffle(array) {
 }
 
 const setBackgrounds = shuffle([
+  "alvin-mahmudov-PSw1Ju18Rf4-unsplash-xs.jpg",
+  "atharva-dharmadhikari-XnH8c4so-wE-unsplash-xs.jpg",
+  "clay-banks-fqgt7A43-K0-unsplash-xs.jpg",
   "gaspar-zaldo-Z9NAI0mf1KA-unsplash-xs.jpg",
-  "kristina-litvjak-FO18LpXMlvk-unsplash-xs.jpg",
-  "morgan-sessions-6fDYNGgjqpM-unsplash-xs.jpg",
-  "scott-broome-BcVvVvqiCGA-unsplash-xs.jpg",
+  "heather-mount-8c3zjKrkkBA-unsplash-xs.jpg",
+  "jacob-rank-pGKyqck99cg-unsplash-xs.jpg",
+  "joanna-nix-walkup-uFPPaoocQFI-unsplash-xs.jpg",
   "jonathan-borba-KvMBOln0_u8-unsplash-xs.jpg",
+  "kenny-eliason-n2VvngfbXtU-unsplash-xs.jpg",
+  "kristina-litvjak-FO18LpXMlvk-unsplash-xs.jpg",
+  "margarida-afonso-AkbqqbAV1lU-unsplash-xs.jpg",
+  "morgan-sessions-6fDYNGgjqpM-unsplash-xs.jpg",
+  "sandy-millar-JQlZccfmCgQ-unsplash-xs.jpg",
+  "scott-broome-BcVvVvqiCGA-unsplash-xs.jpg",
+  "tim-mossholder-EgAduzpSvdE-unsplash-xs.jpg",
 ]).slice(0, 3);
 
 const setNumberNames = ["One", "Two", "Three"];
