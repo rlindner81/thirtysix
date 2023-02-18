@@ -9,11 +9,18 @@
 
     <v-main>
       <v-card
+        class="mx-auto my-6"
+        max-width="480"
         v-if="sets[setIndex][questionIndex]"
         :title="`Set ${setNumberNames[setIndex]}`"
         :subtitle="`Question ${questionIndex + 1}`"
-        :text="sets[setIndex][questionIndex]"
-      ></v-card>
+      >
+        <v-card-text>
+          <p class="text-h5 text--primary">
+            {{ sets[setIndex][questionIndex] }}
+          </p>
+        </v-card-text>
+      </v-card>
     </v-main>
   </v-layout>
 </template>
