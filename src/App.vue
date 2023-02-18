@@ -1,28 +1,40 @@
-<template>
-  <v-layout>
-    <v-app-bar title="ThirtySix">
-      <v-btn icon="mdi-fast-forward mdi-rotate-180" @click="prevSet"></v-btn>
-      <v-btn icon="mdi-play mdi-rotate-180" @click="questionIndex > 0 && questionIndex--"></v-btn>
-      <v-btn icon="mdi-play" @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"></v-btn>
-      <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
-    </v-app-bar>
+<!--:style="{-->
+<!--background: ['url(' + setBackgrounds[setIndex] + ')', 'no-repeat', 'top', 'center', 'fixed'],-->
+<!--,-->
+<!--}"-->
 
-    <v-main>
-      <v-card
-        class="mx-auto my-6"
-        max-width="480"
-        v-if="sets[setIndex][questionIndex]"
-        :title="`Set ${setNumberNames[setIndex]}`"
-        :subtitle="`Question ${questionIndex + 1}`"
-      >
-        <v-card-text>
-          <p class="text-h5 text--primary">
-            {{ sets[setIndex][questionIndex] }}
-          </p>
-        </v-card-text>
-      </v-card>
-    </v-main>
-  </v-layout>
+<template>
+  <v-app>
+    <v-layout
+      :style="{
+        background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat top center fixed',
+        backgroundSize: 'cover',
+      }"
+    >
+      <v-app-bar title="ThirtySix">
+        <v-btn icon="mdi-fast-forward mdi-rotate-180" @click="prevSet"></v-btn>
+        <v-btn icon="mdi-play mdi-rotate-180" @click="questionIndex > 0 && questionIndex--"></v-btn>
+        <v-btn icon="mdi-play" @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"></v-btn>
+        <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
+      </v-app-bar>
+
+      <v-main>
+        <v-card
+          class="mx-auto my-6"
+          max-width="480"
+          v-if="sets[setIndex][questionIndex]"
+          :title="`Set ${setNumberNames[setIndex]}`"
+          :subtitle="`Question ${questionIndex + 1}`"
+        >
+          <v-card-text>
+            <p class="text-h5 text--primary">
+              {{ sets[setIndex][questionIndex] }}
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-main>
+    </v-layout>
+  </v-app>
 </template>
 
 <script>
@@ -42,6 +54,14 @@ function shuffle(array) {
 
   return array;
 }
+
+const setBackgrounds = shuffle([
+  "gaspar-zaldo-Z9NAI0mf1KA-unsplash-xs.jpg",
+  "kristina-litvjak-FO18LpXMlvk-unsplash-xs.jpg",
+  "morgan-sessions-6fDYNGgjqpM-unsplash-xs.jpg",
+  "scott-broome-BcVvVvqiCGA-unsplash-xs.jpg",
+  "jonathan-borba-KvMBOln0_u8-unsplash-xs.jpg",
+]).slice(0, 3);
 
 const setNumberNames = ["One", "Two", "Three"];
 
@@ -112,6 +132,7 @@ export default {
       questionIndex: 0,
       sets,
       setNumberNames,
+      setBackgrounds,
     };
   },
 };
