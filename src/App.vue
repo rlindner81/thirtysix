@@ -1,17 +1,21 @@
 <template>
-  <div class="app">
-    <div class="header">
-      <button @click="prevSet">&langle;&langle;</button>
-      <button @click="questionIndex > 0 && questionIndex--">&langle;</button>
-      <button @click="questionIndex < sets[setIndex].length - 1 && questionIndex++">&rangle;</button>
-      <button @click="nextSet">&rangle;&rangle;</button>
-    </div>
-    <div class="content">
-      <h3>Set {{ setNumberNames[setIndex] }}</h3>
-      <p v-if="sets[setIndex][questionIndex]">{{ questionIndex + 1 }}. {{ sets[setIndex][questionIndex] }}</p>
-    </div>
-    <div class="footer"></div>
-  </div>
+  <v-layout>
+    <v-app-bar title="ThirtySix">
+      <v-btn icon="mdi-fast-forward mdi-rotate-180" @click="prevSet"></v-btn>
+      <v-btn icon="mdi-play mdi-rotate-180" @click="questionIndex > 0 && questionIndex--"></v-btn>
+      <v-btn icon="mdi-play" @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"></v-btn>
+      <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <v-card
+        v-if="sets[setIndex][questionIndex]"
+        :title="`Set ${setNumberNames[setIndex]}`"
+        :subtitle="`Question ${questionIndex + 1}`"
+        :text="sets[setIndex][questionIndex]"
+      ></v-card>
+    </v-main>
+  </v-layout>
 </template>
 
 <script>
@@ -105,29 +109,3 @@ export default {
   },
 };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: larger;
-}
-
-button {
-  font-size: larger;
-  padding: 0.5rem 1rem;
-}
-
-.header {
-  display: flex;
-  gap: 1rem;
-}
-
-.content > * {
-  margin: 1rem;
-}
-.header {
-  margin: 2rem 1rem;
-}
-</style>
