@@ -1,26 +1,22 @@
-<!--:style="{-->
-<!--background: ['url(' + setBackgrounds[setIndex] + ')', 'no-repeat', 'top', 'center', 'fixed'],-->
-<!--,-->
-<!--}"-->
-
 <template>
   <v-app>
-    <v-layout
+    <v-app-bar title="ThirtySix">
+      <v-btn icon="mdi-fast-forward mdi-rotate-180" @click="prevSet"></v-btn>
+      <v-btn icon="mdi-play mdi-rotate-180" @click="questionIndex > 0 && questionIndex--"></v-btn>
+      <v-btn icon="mdi-play" @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"></v-btn>
+      <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
+    </v-app-bar>
+
+    <v-main
       :style="{
         background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat top center fixed',
         backgroundSize: 'cover',
       }"
     >
-      <v-app-bar title="ThirtySix">
-        <v-btn icon="mdi-fast-forward mdi-rotate-180" @click="prevSet"></v-btn>
-        <v-btn icon="mdi-play mdi-rotate-180" @click="questionIndex > 0 && questionIndex--"></v-btn>
-        <v-btn icon="mdi-play" @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"></v-btn>
-        <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
-      </v-app-bar>
-
-      <v-main>
+      <v-container class="fill-height">
         <v-card
-          class="mx-auto my-6"
+          style="opacity: 0.8"
+          class="mx-auto"
           max-width="480"
           v-if="sets[setIndex][questionIndex]"
           :title="`Set ${setNumberNames[setIndex]}`"
@@ -32,8 +28,8 @@
             </p>
           </v-card-text>
         </v-card>
-      </v-main>
-    </v-layout>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
