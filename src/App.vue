@@ -7,13 +7,14 @@
       <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
     </v-app-bar>
 
-    <v-main
-      :style="{
-        background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat top center fixed',
-        backgroundSize: 'cover',
-      }"
-    >
-      <v-container class="fill-height">
+    <v-main>
+      <v-container
+        class="fill-height"
+        :style="{
+          background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat top center fixed',
+          backgroundSize: 'cover',
+        }"
+      >
         <v-card
           style="opacity: 0.8"
           class="mx-auto"
