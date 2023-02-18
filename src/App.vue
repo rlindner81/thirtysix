@@ -7,29 +7,33 @@
       <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
     </v-app-bar>
 
-    <v-main>
-      <v-container
-        class="fill-height"
+    <v-main style="background: radial-gradient(circle, rgba(121, 43, 129, 1) 0%, rgba(121, 37, 37, 1) 100%)">
+      <v-layout
         :style="{
-          background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat top center fixed',
-          backgroundSize: 'cover',
+          background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat center center fixed',
+          backgroundSize: 'inherit',
+          height: '100%',
+          margin: '0 auto',
+          maxWidth: '1200px',
         }"
       >
-        <v-card
-          style="opacity: 0.8"
-          class="mx-auto"
-          max-width="480"
-          v-if="sets[setIndex][questionIndex]"
-          :title="`Set ${setNumberNames[setIndex]}`"
-          :subtitle="`Question ${questionIndex + 1}`"
-        >
-          <v-card-text>
-            <p class="text-h5 text--primary">
-              {{ sets[setIndex][questionIndex] }}
-            </p>
-          </v-card-text>
-        </v-card>
-      </v-container>
+        <v-container class="fill-height">
+          <v-card
+            style="opacity: 0.8"
+            class="mx-auto"
+            max-width="480"
+            v-if="sets[setIndex][questionIndex]"
+            :title="`Set ${setNumberNames[setIndex]}`"
+            :subtitle="`Question ${questionIndex + 1}`"
+          >
+            <v-card-text>
+              <p class="text-h5 text--primary">
+                {{ sets[setIndex][questionIndex] }}
+              </p>
+            </v-card-text>
+          </v-card>
+        </v-container>
+      </v-layout>
     </v-main>
   </v-app>
 </template>
@@ -59,10 +63,8 @@ const setBackgrounds = shuffle([
   "gaspar-zaldo-Z9NAI0mf1KA-unsplash-xs.jpg",
   "heather-mount-8c3zjKrkkBA-unsplash-xs.jpg",
   "jacob-rank-pGKyqck99cg-unsplash-xs.jpg",
-  "joanna-nix-walkup-uFPPaoocQFI-unsplash-xs.jpg",
   "jonathan-borba-KvMBOln0_u8-unsplash-xs.jpg",
   "kenny-eliason-n2VvngfbXtU-unsplash-xs.jpg",
-  "kristina-litvjak-FO18LpXMlvk-unsplash-xs.jpg",
   "margarida-afonso-AkbqqbAV1lU-unsplash-xs.jpg",
   "morgan-sessions-6fDYNGgjqpM-unsplash-xs.jpg",
   "sandy-millar-JQlZccfmCgQ-unsplash-xs.jpg",
