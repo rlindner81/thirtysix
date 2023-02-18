@@ -3,18 +3,12 @@
     <div class="header">
       <button @click="prevSet">&langle;&langle;</button>
       <button @click="questionIndex > 0 && questionIndex--">&langle;</button>
-      <button
-        @click="questionIndex < sets[setIndex].length - 1 && questionIndex++"
-      >
-        &rangle;
-      </button>
+      <button @click="questionIndex < sets[setIndex].length - 1 && questionIndex++">&rangle;</button>
       <button @click="nextSet">&rangle;&rangle;</button>
     </div>
     <div class="content">
       <h3>Set {{ setNumberNames[setIndex] }}</h3>
-      <p v-if="sets[setIndex][questionIndex]">
-        {{ questionIndex + 1 }}. {{ sets[setIndex][questionIndex] }}
-      </p>
+      <p v-if="sets[setIndex][questionIndex]">{{ questionIndex + 1 }}. {{ sets[setIndex][questionIndex] }}</p>
     </div>
     <div class="footer"></div>
   </div>
@@ -32,10 +26,7 @@ function shuffle(array) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
 
   return array;
