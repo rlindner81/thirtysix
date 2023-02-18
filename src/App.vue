@@ -116,3 +116,15 @@ export default {
   },
 };
 </script>
+
+<style>
+* {
+  touch-action: none;
+  pointer-events: none;
+}
+input,
+button,
+a {
+  pointer-events: auto;
+}
+</style>
