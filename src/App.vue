@@ -14,7 +14,7 @@
           :style="{ backgroundImage: 'url(\'images/' + setBackgrounds[setIndex] + '\')' }"
         >
           <v-card
-            class="mx-auto"
+            class="mx-auto my-16"
             max-width="480"
             v-if="sets[setIndex][questionIndex]"
             :title="`Set ${setNumberNames[setIndex]}`"
@@ -151,17 +151,22 @@ export default {
 }
 .background-image-outer {
   height: 100%;
-  max-width: 900px;
+  max-width: 960px;
 }
 .background-image-outer.v-container {
   padding: 0;
 }
 .background-image {
   height: 100%;
-  background-position: center center;
-  background-size: inherit;
+  background-position: center top;
+  background-size: 960px auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+@media (max-width: 960px) {
+  .background-image {
+    background-size: auto auto;
+  }
 }
 * {
   touch-action: none;
