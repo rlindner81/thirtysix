@@ -8,16 +8,11 @@
     </v-app-bar>
 
     <v-main>
-      <v-layout
-        :style="{
-          background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat center center fixed',
-          backgroundSize: 'inherit',
-          height: '100%',
-          margin: '0 auto',
-          maxWidth: '1200px',
-        }"
-      >
-        <v-container class="fill-height">
+      <v-container class="background-image-outer">
+        <v-container
+          class="background-image"
+          :style="{ backgroundImage: 'url(\'images/' + setBackgrounds[setIndex] + '\')' }"
+        >
           <v-card
             class="mx-auto"
             max-width="480"
@@ -32,7 +27,7 @@
             </v-card-text>
           </v-card>
         </v-container>
-      </v-layout>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -153,6 +148,20 @@ export default {
 .v-app-bar,
 .v-card {
   opacity: 0.85;
+}
+.background-image-outer {
+  height: 100%;
+  max-width: 900px;
+}
+.background-image-outer.v-container {
+  padding: 0;
+}
+.background-image {
+  height: 100%;
+  background-position: center center;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 * {
   touch-action: none;
