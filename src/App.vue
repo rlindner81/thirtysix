@@ -7,7 +7,7 @@
       <v-btn icon="mdi-fast-forward" @click="nextSet"></v-btn>
     </v-app-bar>
 
-    <v-main style="background: radial-gradient(circle, rgba(121, 43, 129, 1) 0%, rgba(121, 37, 37, 1) 100%)">
+    <v-main>
       <v-layout
         :style="{
           background: 'url(\'images/' + setBackgrounds[setIndex] + '\') no-repeat center center fixed',
@@ -19,7 +19,6 @@
       >
         <v-container class="fill-height">
           <v-card
-            style="opacity: 0.8"
             class="mx-auto"
             max-width="480"
             v-if="sets[setIndex][questionIndex]"
@@ -148,6 +147,13 @@ export default {
 </script>
 
 <style>
+.v-application.v-layout {
+  background: radial-gradient(circle, rgba(121, 43, 129, 1) 0%, rgba(121, 37, 37, 1) 100%);
+}
+.v-app-bar,
+.v-card {
+  opacity: 0.85;
+}
 * {
   touch-action: none;
   pointer-events: none;
