@@ -142,6 +142,9 @@ export default {
 </script>
 
 <style>
+html {
+  overflow: hidden !important;
+}
 .v-application.v-layout {
   background: radial-gradient(circle, rgba(121, 43, 129, 1) 0%, rgba(121, 37, 37, 1) 100%);
 }
